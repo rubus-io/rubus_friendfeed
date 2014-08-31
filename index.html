@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="App" >
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <link href="data/style.css" rel="stylesheet">
+    <script src="data/angular-1.2.21.min.js"></script>
+    <script src="data/script.js"></script>
+</head>
+
+<body ng-controller="FriendFeedCtrl">
+
+    <div ng-if="parsing" class="parsing_message">
+        Parsing json file. Please wait a bit.
+    </div>
+
+    <div class='post_block' ng-repeat="p in posts">
+        <pre class='post_text' ng-bind-html="p.text"></pre>
+    </div>
+
+    <div class='footer'>
+        <a href="https://github.com/rubus-io/rubus_friendfeed">Source code</a>
+    </div>
+
+</body>
+</html>
