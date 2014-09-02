@@ -10,14 +10,22 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
 
             var posts = [];
             var text;
+            var likes = [];
 
             for (var i=0; i<data.length; i++) {
 
                 text = data[i].body;
                 text = $sce.trustAsHtml(text);
 
+                if (data[i].likes) {
+                    likes = data[i].likes;
+                } else {
+                    likes = [];
+                }
+
                 posts.push({
                     text : text,
+                    likes : likes,
                 });
 
             }

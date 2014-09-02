@@ -15,6 +15,12 @@
 
     <div class='post_block' ng-repeat="p in posts">
         <pre class='post_text' ng-bind-html="p.text"></pre>
+        <div ng-if='p.likes.length'>
+            <img src="/data/emoticon_smile.png">
+            <span ng-repeat='l in p.likes'>
+                <a href="https://friendfeed.com/{{ l.from.id }}" class="like">{{ l.from.name }}</a>
+            </span>
+        </div>
     </div>
 
     <div class='footer'>
