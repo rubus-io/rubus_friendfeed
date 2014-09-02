@@ -11,6 +11,7 @@
     padding: 0;
     font-family: 'Gotham Narrow SSm', sans-serif, Arial;
     color: black;
+    word-wrap: break-word;
 }
 
 a:link { color: #0000ee; }
