@@ -11,6 +11,7 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
             var posts = [];
             var text;
             var likes = [];
+            var comments = [];
 
             for (var i=0; i<data.length; i++) {
 
@@ -23,9 +24,19 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
                     likes = [];
                 }
 
+                if (data[i].comments) {
+                    for (var j=0; j<data[i].comments.length; j++) {
+                        data[i].comments[j].body = $sce.trustAsHtml(data[i].comments[j].body);
+                    }
+                    comments = data[i].comments;
+                } else {
+                    comments = [];
+                }
+
                 posts.push({
                     text : text,
                     likes : likes,
+                    comments : comments,
                 });
 
             }

@@ -18,8 +18,14 @@
         <div ng-if='p.likes.length'>
             <img src="/data/emoticon_smile.png">
             <span ng-repeat='l in p.likes'>
-                <a href="https://friendfeed.com/{{ l.from.id }}" class="like">{{ l.from.name }}</a>
+                <a href="https://friendfeed.com/{{ l.from.id }}" class="name">{{ l.from.name }}</a>
             </span>
+        </div>
+
+        <div ng-repeat='c in p.comments' class="comment">
+            <img src="/data/comment.png">
+            <span ng-bind-html="c.body"></span>
+            <a href="https://friendfeed.com/{{ c.from.id }}" class="name">{{ c.from.name }}</a>
         </div>
     </div>
 
