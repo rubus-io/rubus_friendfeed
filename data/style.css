@@ -31,6 +31,11 @@ a:active { color: #FF8C00; }
     padding-right: 0.2em;
 }
 
+.date {
+    font-family: 'Gotham Narrow SSm', sans-serif, Arial;
+    font-size: smaller;
+}
+
 .comment {
     font-family: 'Gotham Narrow SSm', sans-serif, Arial;
     font-size: smaller;

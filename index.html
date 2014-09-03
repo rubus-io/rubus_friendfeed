@@ -15,6 +15,7 @@
 
     <div class='post_block' ng-repeat="p in posts">
         <pre class='post_text' ng-bind-html="p.text"></pre>
+        <a href="{{ p.url }}" class="date">{{ p.date }}</a>
         <div ng-if='p.likes.length'>
             <img src="/data/emoticon_smile.png">
             <span ng-repeat='l in p.likes'>

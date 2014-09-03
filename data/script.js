@@ -12,6 +12,8 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
             var text;
             var likes = [];
             var comments = [];
+            var url;
+            var date;
 
             for (var i=0; i<data.length; i++) {
 
@@ -33,10 +35,15 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
                     comments = [];
                 }
 
+                url = data[i].url.replace( /^http:/, "https:" );
+                date = data[i].date.replace( /^(.*)T(.*)Z$/, "$1 $2");
+
                 posts.push({
                     text : text,
                     likes : likes,
                     comments : comments,
+                    url : url,
+                    date : date,
                 });
 
             }
