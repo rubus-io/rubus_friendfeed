@@ -14,6 +14,7 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
             var comments = [];
             var url;
             var date;
+            var thumbnails = [];
 
             for (var i=0; i<data.length; i++) {
 
@@ -38,12 +39,31 @@ App.controller('FriendFeedCtrl', ['$scope', '$http', '$sce', function($scope, $h
                 url = data[i].url.replace( /^http:/, "https:" );
                 date = data[i].date.replace( /^(.*)T(.*)Z$/, "$1 $2");
 
+                var thumbnails = [];
+                if (data[i].thumbnails) {
+                    for (var j=0; j<data[i].thumbnails.length; j++) {
+                        if (data[i].thumbnails[j].player == undefined) {
+
+                            small_img = data[i].thumbnails[j].url.replace( /^.*\/(.*)$/, "$1");
+                            big_img = data[i].thumbnails[j].link.replace( /^.*\/(.*)$/, "$1");
+
+                            thumbnails.push({
+                                height : data[i].thumbnails[j].height,
+                                width : data[i].thumbnails[j].width,
+                                small_img : small_img,
+                                big_img : big_img,
+                            });
+                        }
+                    }
+                }
+
                 posts.push({
                     text : text,
                     likes : likes,
                     comments : comments,
                     url : url,
                     date : date,
+                    thumbnails : thumbnails,
                 });
 
             }

@@ -32,6 +32,7 @@ a:active { color: #FF8C00; }
 }
 
 .date {
+    display: block;
     font-family: 'Gotham Narrow SSm', sans-serif, Arial;
     font-size: smaller;
 }

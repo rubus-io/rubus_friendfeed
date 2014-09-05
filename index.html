@@ -15,6 +15,13 @@
 
     <div class='post_block' ng-repeat="p in posts">
         <pre class='post_text' ng-bind-html="p.text"></pre>
+
+        <span ng-repeat='t in p.thumbnails'>
+            <a href="images/{{ t.big_img }}">
+                <img height="{{ t.height }}" width="{{ t.width }}" src="thumbnails/{{ t.small_img }}">
+            </a>
+        </span>
+
         <a href="{{ p.url }}" class="date">{{ p.date }}</a>
         <div ng-if='p.likes.length'>
             <img src="data/emoticon_smile.png">
